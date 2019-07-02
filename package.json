@@ -5,10 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint-fix": "vue-cli-service lint --fix --ext .js,.vue src"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "lodash": "^4.17.11",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -16,8 +18,14 @@
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
+    "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "file-loader": "^4.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "standard": "^12.0.1",
+    "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {

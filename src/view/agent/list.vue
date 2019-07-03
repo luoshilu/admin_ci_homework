@@ -61,10 +61,10 @@ export default {
     return {}
   },
   methods: {
-    addResource(e, id) {
-      console.log(e);
-    }
-  }
+    addResource() {
+      // console.log(e)
+    },
+  },
 }
 </script>
 

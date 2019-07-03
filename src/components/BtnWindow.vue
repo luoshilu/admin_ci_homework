@@ -35,42 +35,42 @@
 </template>
 <script>
 
-import {directive as clickOutside} from 'v-click-outside-x';
+import {directive as clickOutside} from 'v-click-outside-x'
 
 export default {
   name: "BtnWindow",
   directives: { clickOutside },
   props: {
-      'id': ['string'],
+    'id': String,
   },
   data() {
-      return {
-          show: false,
-          val: '',
-      }
+    return {
+      show: false,
+      val: '',
+    }
   },
   computed: {
-      resources: function(){
-          return (this.val.split(',')).map(e => e.trim())
-      },
+    resources(){
+      return (this.val.split(',')).map(e => e.trim())
+    },
   },
   methods: {
     openWindow() {
-        this.show = true
+      this.show = true
     },
     closeWindow() {
-        this.show = false
-        this.val = ''
+      this.show = false
+      this.val = ''
     },
     addResource() {
-        this.$emit('addResource', {
-            id: this.id,
-            resources: this.resources,
-        })
-        this.closeWindow()
+      this.$emit('addResource', {
+        id: this.id,
+        resources: this.resources,
+      })
+      this.closeWindow()
     },
-    onClickoutside (e) {
-        this.closeWindow()
+    onClickoutside () {
+      this.closeWindow()
     },
   },
 }

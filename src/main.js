@@ -7,7 +7,7 @@ import App from './App.vue'
 import router from './router'
 import VueRouter from 'vue-router'
 
-require('@/assets/style/init.scss')
+require('@/assets/styles/index.scss')
 
 /* 插件 */
 Vue.use(VueRouter)

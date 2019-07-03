@@ -1,0 +1,51 @@
+
+/* 基础样式 */
+
+/****** 按钮 ******/
+button.btn {
+  font-size: 18px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 14px;
+  text-align: center;
+  color: #000;
+  background-color: $gray_color;
+  cursor: pointer;
+  outline: none;
+  i {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  i ~ span, span ~ i {
+    padding-left: 8px;
+    padding-right: 0;
+  }
+}
+
+.btn.sm {
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 8px;
+}
+
+.btn.md {
+  font-size: 16px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+}
+
+
+.btn.primary {
+  color: #fff;
+  background-color: $primary_color;
+}
+.btn.warning {
+  color: #fff;
+  background-color: $warning_color;
+}
+.btn.info {
+  color: #fff;
+  background-color: $info_color;
+}

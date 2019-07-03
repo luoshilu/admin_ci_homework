@@ -13,6 +13,7 @@ export default {
     },
     size: [Number, String],
     color: String,
+    opacity: String,
     custom: {
       type: String,
       default: "",
@@ -35,6 +36,9 @@ export default {
       }
       if (this.color) {
         style.color = this.color
+      }
+      if (this.opacity) {
+        style.opacity = this.opacity
       }
       return style
     },

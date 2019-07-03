@@ -8,8 +8,8 @@ button.btn {
   line-height: 30px;
   padding: 0 14px;
   text-align: center;
-  color: #000;
-  background-color: $gray_color;
+  color: $default_color;
+  background-color: #EFEFEF;
   cursor: pointer;
   outline: none;
   i {
@@ -48,4 +48,8 @@ button.btn {
 .btn.info {
   color: #fff;
   background-color: $info_color;
+}
+.btn.default {
+  color: #fff;
+  background-color: $default_color;
 }

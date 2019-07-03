@@ -85,7 +85,7 @@
             height: 50px;
             justify-content: center;
             align-items: center;
-            color: #000;
+            color: $default_color;
             border-bottom: 3px solid #fff;
             border-right: 1px solid $gray_color;
             &:hover {
@@ -127,7 +127,7 @@
         .tab-menu-icon {
           position: absolute;
           right: 0;
-          color: #000;
+          color: $default_color;
           i {
             margin: 0 12px;
             cursor: pointer;
@@ -187,7 +187,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: #000;
+    color: $default_color;
     .item {
       display: flex;
       height: 74%;

@@ -127,15 +127,17 @@
       }
       .history {
         position: absolute;
+        padding: 0 12px;
         bottom: 0;
         height: 300px;
         color: $gray_color;
         h2 {
-          color: $gray_color;
+          color: #ccc;
         }
         ul {
           list-style: square;
           margin-left: 20px;
+          color: #999;
         }
       }
     }

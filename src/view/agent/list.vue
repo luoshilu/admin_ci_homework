@@ -27,9 +27,14 @@
           </div>
           <div class="bottom">
             <div class="plus">
-              <button class="btn md info">
-                <FontIcon :class="`icon-plus`"></FontIcon>
-              </button>
+              <BtnWindow v-on:addResource="addResource">
+                <!-- <template v-slot="slotProps">
+                  <button class="btn md info">
+                    <FontIcon :class="`icon-plus`"></FontIcon>
+                    {{slotProps.val}}
+                  </button>
+                </template> -->
+              </BtnWindow>
             </div>
             <div class="resources">
               <button class="btn md">
@@ -49,6 +54,19 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    addResource(e, id) {
+      console.log(e);
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
   .agent-list {

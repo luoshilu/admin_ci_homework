@@ -30,11 +30,11 @@ html {
 }
 
 body {
-  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  font-family: Avenir, Helvetica, Arial, sansserif;
   font-size: 14px;
   line-height: 1.8;
   margin: 0 auto;
-  color: #313131;
+  color: $default_color;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

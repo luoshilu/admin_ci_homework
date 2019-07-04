@@ -17,7 +17,7 @@
             <li class="menu-item" v-for="(item, i) in menus" :key="i">
               <router-link :to="item['to']">
                 <span class="menu-item-icon">
-                  <FontIcon :class="item['icon']" :size="18"></FontIcon>
+                  <FontIcon :type="item['icon']" :size="18"></FontIcon>
                 </span>
                 <span class="menu-item-name">{{item['name']}}</span>
               </router-link>
@@ -171,22 +171,22 @@ export default {
       return [
         {
           name: "DASHBOARD",
-          icon: "icon-dashboard",
+          icon: "dashboard",
           to: "/dashboard",
         },
         {
           name: "AGENT",
-          icon: "icon-sitemap",
+          icon: "sitemap",
           to: "/agent",
         },
         {
           name: "MY CRUISE",
-          icon: "icon-boat",
+          icon: "boat",
           to: "/cruise",
         },
         {
           name: "HELP",
-          icon: "icon-life-bouy",
+          icon: "life-bouy",
           to: "/help",
         },
       ]

@@ -6,7 +6,7 @@
           Building
         </span>
         <div class="card-bg-icon rotate">
-          <FontIcon :class="`icon-cog`" :size="144" :opacity="`0.2`"></FontIcon>
+          <FontIcon :type="`cog`" :size="144" :opacity="`0.2`"></FontIcon>
         </div>
         <span class="card-num">
           {{building}}
@@ -17,7 +17,7 @@
           Idle
         </span>
         <div class="card-bg-icon">
-          <FontIcon :class="`icon-coffee`" :size="144" :opacity="`0.2`"></FontIcon>
+          <FontIcon :type="`coffee`" :size="144" :opacity="`0.2`"></FontIcon>
         </div>
         <span class="card-num">
           {{idle}}
@@ -58,13 +58,13 @@
         </li>
       </ul>
       <div class="tab-input">
-        <FontIcon :class="`icon-search`" :size="16"></FontIcon>
+        <FontIcon :type="`search`" :size="16"></FontIcon>
         <input type="text">
       </div>
       <div class="tab-menu">
         <div class="tab-menu-icon">
-          <FontIcon :class="`icon-th-card`" :size="18"></FontIcon>
-          <FontIcon :class="`icon-th-list`" :size="18" class="active"></FontIcon>
+          <FontIcon :type="`th-card`" :size="18"></FontIcon>
+          <FontIcon :type="`th-list`" :size="18" class="active"></FontIcon>
         </div>
       </div>
     </div>

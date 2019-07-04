@@ -4,14 +4,14 @@
         >
         <slot v-bind:val="val">
             <button class="btn md info" @click="openWindow()">
-                <FontIcon :class="`icon-plus`"></FontIcon>
+                <FontIcon :type="`plus`"></FontIcon>
             </button>
         </slot>
         <div class="pos-window" v-show="show">
             <div class="window">
                 <div class="arrow"><div class="arrow2"></div></div>
                 <div class="close" @click="closeWindow">
-                    <FontIcon :class="`icon-close`" :size="24"></FontIcon>
+                    <FontIcon :type="`close`" :size="24"></FontIcon>
                 </div>
                 <div class="content">
                     <div class="tip">

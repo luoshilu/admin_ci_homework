@@ -8,7 +8,7 @@
         <div class="item-info">
           <div class="top">
             <div class="origin">
-              <FontIcon :class="`icon-desktop`" :size="16"></FontIcon>
+              <FontIcon :type="`desktop`" :size="16"></FontIcon>
               <span class="data">
                 <a href="">{{item.name}}</a>
               </span>
@@ -18,11 +18,11 @@
               <button v-else class="btn warning sm">{{item.status}}</button>
             </div>
             <div class="ip">
-              <FontIcon :class="`icon-info`" :size="16"></FontIcon>
+              <FontIcon :type="`info`" :size="16"></FontIcon>
               <span class="data">{{item.ip}}</span>
             </div>
             <div class="location">
-              <FontIcon :class="`icon-folder`" :size="16"></FontIcon>
+              <FontIcon :type="`folder`" :size="16"></FontIcon>
               <span class="data">{{item.location}}</span>
             </div>
           </div>
@@ -38,14 +38,14 @@
                 >
                 <span>{{resource}}</span>
                 <FontIcon
-                  :class="`icon-trash`"
+                  :type="`trash`"
                   @click="deleteResource(item.id, resource)"
                 ></FontIcon>
               </button>
             </div>
             <div class="change-status">
               <button class="btn info">
-                <FontIcon :class="`icon-deny`" :size="16"></FontIcon>
+                <FontIcon :type="`deny`" :size="16"></FontIcon>
                 <span>Deny</span>
               </button>
             </div>

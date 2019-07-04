@@ -258,3 +258,8 @@ input::input-placeholder, textarea::input-placeholder, input:-moz-placeholder, t
     font-size: 32px;
   }
 }
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

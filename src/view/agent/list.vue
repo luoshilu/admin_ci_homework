@@ -7,7 +7,7 @@
         </div>
         <div class="item-info">
           <div class="top">
-            <div class="origin">
+            <div class="origin nowrap">
               <FontIcon :type="`desktop`" :size="16"></FontIcon>
               <span class="data">
                 <a href="">{{item.name}}</a>
@@ -17,11 +17,11 @@
               <button v-if="item.status === 'idle'" class="btn primary sm">{{item.status}}</button>
               <button v-else class="btn warning sm">{{item.status}}</button>
             </div>
-            <div class="ip">
+            <div class="ip nowrap">
               <FontIcon :type="`info`" :size="16"></FontIcon>
               <span class="data">{{item.ip}}</span>
             </div>
-            <div class="location">
+            <div class="location nowrap">
               <FontIcon :type="`folder`" :size="16"></FontIcon>
               <span class="data">{{item.location}}</span>
             </div>
@@ -90,7 +90,7 @@ export default {
       // 发起请求
       agent.update(id, data)
         .then(() => {
-          alert('更新成功')
+          // alert('更新成功')
         })
     },
     getList() {
@@ -118,7 +118,7 @@ export default {
       position: relative;
       width: 100%;
       margin-top: 12px;
-      height: 120px;
+      min-height: 120px;
       padding: 20px 18px;
       background-color: #fff;
       .item-logo {
@@ -131,7 +131,7 @@ export default {
         display: block;
         position: relative;
         margin-left: 98px;
-        height: 80px;
+        min-height: 80px;
         .top {
           display: flex;
           justify-content: space-between;
@@ -160,18 +160,17 @@ export default {
           }
         }
         .bottom {
-          position: absolute;
+          display: flow-root;
           width: 100%;
-          left: 0;
-          height: 30px;
-          bottom: 0;
+          margin-top: 34px;
           .plus {
             float: left;
           }
           .resources {
             float: left;
+            width: 80%;
             .btn {
-              margin-left: 12px;
+              margin: 0 0 8px 12px;
             }
           }
           .change-status {

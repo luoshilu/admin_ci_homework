@@ -6,7 +6,7 @@
           <Logo></Logo>
         </div>
         <div class="user-info">
-          <img src="@/assets/images/user.jpg" alt="">
+          <img src="/images/user.jpg" alt="">
         </div>
       </div>
     </header>
@@ -27,11 +27,11 @@
         <div class="history">
           <h2>History</h2>
           <ul>
-            <li>
+            <li class="nowrap">
               <span>bjstdmngbr02/Acessptance_test</span>
             </li>
             <li>
-              <span>bjstdmngbr02/Acessptance_test</span>
+              <span>bjstdmngbr04/Acessptance_test</span>
             </li>
             <li>
               <span>bjstdmngbr02/Acessptance_test</span>
@@ -64,7 +64,8 @@
     background: $de_gray_color;
     min-height: 100vh;
     header {
-      position: absolute;
+      position: fixed;
+      float: left;
       top: 0;
       left: 0;
       z-index: 100;
@@ -95,9 +96,7 @@
       }
     }
     nav {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: fixed;
       background: $default_color;
       width: $menu_width;
       height: 100vh;
@@ -139,14 +138,20 @@
         padding: 0 12px;
         bottom: 0;
         height: 300px;
+        width: 100%;
         color: $gray_color;
         h2 {
           color: #ccc;
         }
         ul {
           list-style: square;
+          list-style-position: inside;
           margin-left: 20px;
           color: #999;
+          li {
+            width: 100%;
+            list-style: square;
+          }
         }
       }
     }

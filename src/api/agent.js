@@ -23,7 +23,7 @@ export default {
       Vue.axios.get('/agents').then(response => {
         // 计算总数
         // (若数据量大而且有分页功能，那么应该在该接口中加入总数的相关字段，而不是由前端来计算总数。)
-        const data = {
+        const total = {
           status: {
             building: 0,
             idle: 0,
@@ -34,10 +34,10 @@ export default {
           },
         }
         response.data.forEach(e => {
-          data.status[e.status]++
-          data.type[e.type]++
+          total.status[e.status]++
+          total.type[e.type]++
         })
-        resolve(data)
+        resolve(total)
       })
     })
   },

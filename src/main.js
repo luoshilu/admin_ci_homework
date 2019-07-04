@@ -4,6 +4,9 @@ import camelCase from 'lodash/camelCase'
 import Vue from 'vue'
 import App from './App.vue'
 
+import VueAxios from 'vue-axios'
+import axios from 'axios'
+
 import router from './router'
 import VueRouter from 'vue-router'
 
@@ -11,6 +14,7 @@ require('@/assets/styles/index.scss')
 
 /* 插件 */
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios)
 
 /* 注册全局组件 */
 const requireComponent = require.context(

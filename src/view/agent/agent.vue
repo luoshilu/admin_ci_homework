@@ -7,7 +7,7 @@
         </span>
         <FontIcon class="animation" :class="`icon-cog`" :size="144" :opacity="`0.2`"></FontIcon>
         <span class="card-num">
-          3
+          {{building}}
         </span>
       </div>
       <div class="card-type-1 primary">
@@ -16,21 +16,27 @@
         </span>
         <FontIcon :class="`icon-coffee`" :size="144" :opacity="`0.2`"></FontIcon>
         <span class="card-num">
-          5
+          {{idle}}
         </span>
       </div>
       <div class="card-type-2">
         <div class="item">
           <span class="card-name">ALL</span>
-          <span class="card-num">8</span>
+          <span class="card-num">
+            {{physical + virtual}}
+          </span>
         </div>
         <div class="item">
           <span class="card-name">PHYSICAL</span>
-          <span class="card-num">4</span>
+          <span class="card-num">
+            {{physical}}
+          </span>
         </div>
         <div class="item">
           <span class="card-name">VIRTUAL</span>
-          <span class="card-num">4</span>
+          <span class="card-num">
+            {{virtual}}
+          </span>
         </div>
       </div>
     </div>
@@ -61,6 +67,31 @@
     <router-view></router-view>
   </div>
 </template>
+
+<script>
+
+import agent from "@/api/agent.js"
+
+export default {
+  data() {
+    return {
+      building: 0,
+      idle: 0,
+      physical: 0,
+      virtual: 0,
+    }
+  },
+  mounted() {
+    agent.getTotal()
+      .then(data => {
+        this.building = data.status.building
+        this.idle = data.status.building
+        this.physical = data.type.physical
+        this.virtual = data.type.virtual
+      })
+  },
+}
+</script>
 
 <style lang="scss" scoped>
   .agent {

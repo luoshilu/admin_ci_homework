@@ -1,45 +1,46 @@
 <template>
   <div class="agent-list">
     <ul>
-      <li class="item">
+      <li class="item" v-for="(item, id) in list" :key="id">
         <div class="item-logo">
-          <img src="@/assets/images/cent_os.png" alt="">
+          <img :src="`/images/${item.os}.png`">
         </div>
         <div class="item-info">
           <div class="top">
             <div class="origin">
               <FontIcon :class="`icon-desktop`" :size="16"></FontIcon>
               <span class="data">
-                <a href="">fdsfdsffds3.thougntworks.com</a>
+                <a href="">{{item.name}}</a>
               </span>
             </div>
             <div class="status">
-              <button class="btn primary sm">idle</button>
+              <button v-if="item.status === 'idle'" class="btn primary sm">{{item.status}}</button>
+              <button v-else class="btn warning sm">{{item.status}}</button>
             </div>
             <div class="ip">
               <FontIcon :class="`icon-info`" :size="16"></FontIcon>
-              <span class="data">192.168.0.1</span>
+              <span class="data">{{item.ip}}</span>
             </div>
-            <div class="path">
+            <div class="location">
               <FontIcon :class="`icon-folder`" :size="16"></FontIcon>
-              <span class="data">/var/lib/cruise-agent</span>
+              <span class="data">{{item.location}}</span>
             </div>
           </div>
           <div class="bottom">
             <div class="plus">
-              <BtnWindow v-on:addResource="addResource">
-                <!-- <template v-slot="slotProps">
-                  <button class="btn md info">
-                    <FontIcon :class="`icon-plus`"></FontIcon>
-                    {{slotProps.val}}
-                  </button>
-                </template> -->
-              </BtnWindow>
+              <ResourceWindow :id="item.id" v-on:addResource="addResource"></ResourceWindow>
             </div>
             <div class="resources">
-              <button class="btn md">
-                <span>Chrom</span>
-                <FontIcon :class="`icon-trash`"></FontIcon>
+              <button
+                v-for="resource in item.resources"
+                :key="resource"
+                class="btn md"
+                >
+                <span>{{resource}}</span>
+                <FontIcon
+                  :class="`icon-trash`"
+                  @click="deleteResource(item.id, resource)"
+                ></FontIcon>
               </button>
             </div>
             <div class="change-status">
@@ -56,14 +57,55 @@
 </template>
 
 <script>
+
+import agent from "@/api/agent.js"
+
 export default {
   data() {
-    return {}
+    return {
+      list: {},
+    }
   },
   methods: {
-    addResource() {
-      // console.log(e)
+    addResource(e) {
+      if(e.resources.length > 0 && e.resources[0]) {
+        // 获取完整数据
+        const data = this.list[e.id]
+        const sourceLength = data.resources.length
+        data.resources = Array.from(new Set([...e.resources, ...data.resources]))
+        if(data.resources.length === sourceLength) {
+          alert('该项已存在')
+          return
+        }
+        this.update(e.id, data)
+      }
     },
+    deleteResource(id, name) {
+      // 获取完整数据
+      const data = this.list[id]
+      data.resources = data.resources.filter(e => e !== name)
+      this.update(id, data)
+    },
+    update(id, data) {
+      // 发起请求
+      agent.update(id, data)
+        .then(() => {
+          alert('更新成功')
+        })
+    },
+    getList() {
+      agent.getList({type: ''})
+        .then(res => {
+          if(Array.isArray(res)) {
+            res.forEach(resource => {
+              this.$set(this.list, resource.id, resource)
+            })
+          }
+        })
+    },
+  },
+  mounted() {
+    this.getList()
   },
 }
 </script>
@@ -113,7 +155,7 @@ export default {
           .ip {
             width: 25%;
           }
-          .path {
+          .location {
             width: 25%;
           }
         }

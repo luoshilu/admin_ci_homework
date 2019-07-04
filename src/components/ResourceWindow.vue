@@ -38,11 +38,9 @@
 import {directive as clickOutside} from 'v-click-outside-x'
 
 export default {
-  name: "BtnWindow",
+  name: "ResourceWindow",
   directives: { clickOutside },
-  props: {
-    'id': String,
-  },
+  props:  ['id'],
   data() {
     return {
       show: false,

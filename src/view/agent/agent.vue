@@ -5,7 +5,9 @@
         <span class="card-name">
           Building
         </span>
-        <FontIcon class="animation" :class="`icon-cog`" :size="144" :opacity="`0.2`"></FontIcon>
+        <div class="card-bg-icon rotate">
+          <FontIcon :class="`icon-cog`" :size="144" :opacity="`0.2`"></FontIcon>
+        </div>
         <span class="card-num">
           {{building}}
         </span>
@@ -14,7 +16,9 @@
         <span class="card-name">
           Idle
         </span>
-        <FontIcon :class="`icon-coffee`" :size="144" :opacity="`0.2`"></FontIcon>
+        <div class="card-bg-icon">
+          <FontIcon :class="`icon-coffee`" :size="144" :opacity="`0.2`"></FontIcon>
+        </div>
         <span class="card-num">
           {{idle}}
         </span>
@@ -176,7 +180,7 @@ export default {
   .card-type-1, .card-type-2 {
     position: relative;
     width: $card_width;
-    height: 144px;
+    height: $card_height;
     color: #fff;
     background: #fff;
   }
@@ -189,8 +193,14 @@ export default {
 
   .card-type-1 {
     text-align: center;
-    .animation {
-      animation: card_icon_rotate 2s ease-in infinite;
+    overflow: hidden;
+    .card-bg-icon {
+      width: $card_height;
+      height: $card_height;
+      margin: 0 auto;
+    }
+    .card-bg-icon.rotate {
+      animation: card_icon_rotate 2s linear infinite;
     }
     @keyframes card_icon_rotate {
       0% {

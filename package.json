@@ -1,6 +1,7 @@
 {
   "name": "admin_ci",
   "version": "0.1.0",
+  "author": "luoshilu<leohtml@qq.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

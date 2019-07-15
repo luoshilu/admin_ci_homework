@@ -66,9 +66,9 @@ import agent from "@/api/agent.js"
 export default {
   props: ['type', 'list'],
   watch: {
-    '$route' (to, from) {
+    // '$route' (to, from) {
 
-    }
+    // }
   },
   methods: {
     addResource(e) {

@@ -18,7 +18,7 @@
                         Separate multiple resource name with commas
                     </div>
 
-                    <input type="text" v-model="val" placeholder="e.g. Chrome, Firefox">
+                    <input type="text" v-model="val" placeholder="e.g. Chrome, Firefox" @keyup.enter="addResource()">
 
                     <div class="buttons">
                         <button class="btn info md" @click="addResource()">

@@ -49,7 +49,15 @@ export default {
   },
   computed: {
     resources(){
-      return (this.val.split(',')).map(e => e.trim())
+      let resourceList = this.val.split(',')
+      let tmpList = []
+      for (let i = 0; i < resourceList.length;i++) {
+          resourceList[i] = resourceList[i].trim()
+          if (resourceList[i]) {
+              tmpList.push(resourceList[i])
+          }
+      }
+      return tmpList
     },
   },
   methods: {

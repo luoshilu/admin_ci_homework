@@ -172,7 +172,7 @@ export default {
     }
   },
   computed: {
-    "menus"(){
+    menus () {
       return [
         {
           name: "DASHBOARD",

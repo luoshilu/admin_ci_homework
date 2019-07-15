@@ -1,7 +1,10 @@
 <template>
   <div class="agent-list">
     <ul>
-      <li class="item" v-for="(item, id) in list" :key="id">
+      <li class="item"
+          v-for="(item, id) in list"
+          :key="id"
+          v-if="type === 'all' || item.type === type">
         <div class="item-logo">
           <img :src="`/images/${item.os}.png`">
         </div>
@@ -61,9 +64,10 @@
 import agent from "@/api/agent.js"
 
 export default {
-  data() {
-    return {
-      list: {},
+  props: ['type', 'list'],
+  watch: {
+    '$route' (to, from) {
+
     }
   },
   methods: {
@@ -93,19 +97,6 @@ export default {
           // alert('更新成功')
         })
     },
-    getList() {
-      agent.getList({type: ''})
-        .then(res => {
-          if(Array.isArray(res)) {
-            res.forEach(resource => {
-              this.$set(this.list, resource.id, resource)
-            })
-          }
-        })
-    },
-  },
-  mounted() {
-    this.getList()
   },
 }
 </script>

@@ -48,7 +48,7 @@
     <div class="tab">
       <ul class="tab-item">
         <li>
-          <router-link :to="`/agent`">All</router-link>
+          <router-link :to="`/agent/all`">All</router-link>
         </li>
         <li>
           <router-link :to="`/agent/physical`">Physical</router-link>
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <router-view></router-view>
+    <router-view :list="list"></router-view>
   </div>
 </template>
 
@@ -79,6 +79,7 @@ import agent from "@/api/agent.js"
 export default {
   data() {
     return {
+      list: {},
       building: 0,
       idle: 0,
       physical: 0,
@@ -87,11 +88,17 @@ export default {
   },
   mounted() {
     agent.getTotal()
-      .then(data => {
-        this.building = data.status.building
-        this.idle = data.status.idle
-        this.physical = data.type.physical
-        this.virtual = data.type.virtual
+      .then(res => {
+        this.building = res.total.status.building
+        this.idle = res.total.status.idle
+        this.physical = res.total.type.physical
+        this.virtual = res.total.type.virtual
+
+        if(Array.isArray(res.data)) {
+          res.data.forEach(resource => {
+            this.$set(this.list, resource.id, resource)
+          })
+        }
       })
   },
 }

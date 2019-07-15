@@ -37,7 +37,10 @@ export default {
           total.status[e.status]++
           total.type[e.type]++
         })
-        resolve(total)
+        resolve({
+          total,
+          data: response.data,
+        })
       })
     })
   },

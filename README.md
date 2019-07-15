@@ -28,18 +28,18 @@ mock server:
 ### 开发环境
 
 客户端：
-> npm run serve
+> yarn run serve
 
 mock server: 
-> cd mock-server && npm start
+> cd mock-server && yarn start
 
 ### 单元测试
 
-> npm run test
+> yarn run test
 
 ### 生产构建
 
-> npm run build
+> yarn run build
 
 ## 完成度以及需完善的地方
 

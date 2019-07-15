@@ -160,7 +160,7 @@ export default {
           }
         }
         .bottom {
-          display: flow-root;
+          display: block;
           width: 100%;
           margin-top: 34px;
           .plus {
@@ -176,6 +176,13 @@ export default {
           .change-status {
             float: right;
           }
+        }
+        .bottom::after {
+          content: "";
+          display: block;
+          height: 0;
+          visibility: hidden;
+          clear: both;
         }
       }
     }

@@ -58,6 +58,7 @@
   .content {
     position: relative;
     width: $content_width;
+    min-width: 1320px;
     margin: 0 auto;
   }
   .home {
@@ -145,12 +146,11 @@
         }
         ul {
           list-style: square;
-          list-style-position: inside;
           margin-left: 20px;
           color: #999;
           li {
             width: 100%;
-            list-style: square;
+            list-style: square inside;
           }
         }
       }

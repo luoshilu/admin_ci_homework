@@ -6,7 +6,7 @@
           Building
         </span>
         <div class="card-bg-icon rotate">
-          <FontIcon :type="`cog`" :size="144" :opacity="`0.2`"></FontIcon>
+          <FontIcon :type="`cog`" :opacity="`0.2`"></FontIcon>
         </div>
         <span class="card-num">
           {{building}}
@@ -17,7 +17,7 @@
           Idle
         </span>
         <div class="card-bg-icon">
-          <FontIcon :type="`coffee`" :size="144" :opacity="`0.2`"></FontIcon>
+          <FontIcon :type="`coffee`" :opacity="`0.2`"></FontIcon>
         </div>
         <span class="card-num">
           {{idle}}
@@ -89,7 +89,7 @@ export default {
     agent.getTotal()
       .then(data => {
         this.building = data.status.building
-        this.idle = data.status.building
+        this.idle = data.status.idle
         this.physical = data.type.physical
         this.virtual = data.type.virtual
       })
@@ -180,6 +180,7 @@ export default {
   .card-type-1, .card-type-2 {
     position: relative;
     width: $card_width;
+    min-width: $card_height;
     height: $card_height;
     color: #fff;
     background: #fff;
@@ -198,6 +199,10 @@ export default {
       width: $card_height;
       height: $card_height;
       margin: 0 auto;
+      text-align: center;
+      .icon {
+        font-size: $card_height;
+      }
     }
     .card-bg-icon.rotate {
       animation: card_icon_rotate 2s linear infinite;

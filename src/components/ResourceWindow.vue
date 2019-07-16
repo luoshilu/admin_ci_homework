@@ -35,11 +35,11 @@
 </template>
 <script>
 
-import {directive as clickOutside} from 'v-click-outside-x'
+// import {directive as clickOutside} from 'v-click-outside-x'
 
 export default {
   name: "ResourceWindow",
-  directives: { clickOutside },
+//   directives: 'clickOutside',
   props:  ['id'],
   data() {
     return {

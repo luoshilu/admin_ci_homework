@@ -48,6 +48,29 @@ requireComponent.keys().forEach(fileName => {
 })
 /* 注册全局组件 */
 
+/* 注册全局指令 */
+const instances = []
+Vue.directive('click-outside', {
+  bind (el, binding) {
+    if (typeof binding.value !== 'function') {
+      throw new TypeError('Binding value must be a function.')
+    }
+    if (instances.push({el, binding}) === 1) {
+      document.addEventListener('click', function(evt) {
+        const target = evt.target
+        instances.forEach(item => {
+          const { binding, el } = item
+          if (target !== el && !el.contains(target)) {
+            binding.value.call(this, evt)
+          }
+        })
+      }, false)
+    }
+  },
+})
+
+/* 注册全局指令 */
+
 Vue.config.productionTip = false
 
 new Vue({

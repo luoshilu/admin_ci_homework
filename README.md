@@ -11,8 +11,7 @@
 
 **开发环境**：
 
-- windows10
-- node
+- windows10 + mac
 - vscode
 
 ## 安装依赖
